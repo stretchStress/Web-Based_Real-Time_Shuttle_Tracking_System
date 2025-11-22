@@ -1,0 +1,181 @@
+/* ===== Global Reset ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* ===== Map Fullscreen ===== */
+.trackpage-map {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
+
+/* ===== Floating Toggle Button ===== */
+.sidebar-toggle {
+  position: absolute;
+  top: 40%;
+  left: 10px;
+  background-color: #f37021;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background-color: #d95f1b;
+  cursor: pointer;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 230px;
+  background-color: #ffffff;
+  border-left: 6px solid #f37021;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  padding: 1.5rem 1rem;
+  z-index: 1100;
+  animation: slideIn 0.3s ease-out;
+}
+
+.sidebar .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  color: #f37021;
+}
+
+.text-orange {
+  color: #f37021;
+}
+
+/* ===== Driver Info Card ===== */
+.driver-card {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  background: #fff;
+  border: 2px solid #f37021;
+  border-radius: 14px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+  padding: 1.5rem;
+  z-index: 1200;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.driver-card .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.driver-card img {
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+}
+
+
+.driver-card .text-success,
+.driver-card .text-danger {
+  font-weight: 600;
+}
+
+/* ===== QR Section ===== */
+.driver-card .qr-section {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.driver-card .qr-section img {
+  max-width: 150px;
+  margin-bottom: 0.5rem;
+}
+
+.driver-card .qr-section p {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ===== Animations ===== */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.driver-info {
+  width: 85%;
+  border-radius: 2px;
+  color: #fcaa78;
+}
+.feedback-link {
+  text-decoration: none;
+  color: #f37021; /* Default orange */
+  font-weight: 600;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.feedback-link:hover {
+  color: green;
+  text-decoration: underline; /* Optional underline on hover */
+}
+.btn-orange {
+  background-color: #f37021;
+  color: #fff;
+  border: none;
+}
+.btn-orange:hover {
+  background-color: #d95f1b;
+}
+

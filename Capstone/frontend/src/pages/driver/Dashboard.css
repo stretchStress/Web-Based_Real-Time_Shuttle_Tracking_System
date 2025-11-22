@@ -1,0 +1,749 @@
+/* Dashboard.css */
+.dashboard-container {
+    background-color: white;
+    color: white;
+    height: 100vh;          
+    overflow-y: auto;       
+    overflow-x: hidden;     
+}
+
+
+.driver-info-2 {
+    background-color: rgb(1, 78, 1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #f66002;
+    /* Alcedon orange */
+}
+
+.driver-info h2 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.driver-info p {
+    color: #ddd;
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.duty-toggle {
+    display: flex;
+    gap: 15px;
+    margin: 20px;
+}
+
+.duty-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.duty-btn.active {
+    background-color: #f66002;
+    color: white;
+}
+
+.duty-btn:not(.active) {
+    background-color: rgb(1, 78, 1);
+    color: white;
+}
+
+/* Hover for active duty button (On Duty) */
+.duty-btn.active:hover {
+    background-color: #f66002; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover for inactive duty button (Off Duty) */
+.duty-btn:not(.active):hover {
+    background-color: #245628; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-section {
+    margin: 0 20px 20px;
+}
+
+.info-section h3 {
+    color: #183b1c;
+    margin-bottom: 10px;
+}
+
+.info-card {
+    background-color: rgb(1, 78, 1);
+    padding: 15px;
+    border-radius: 8px;
+    color: #f6f2f2;
+}
+
+.tracker-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tracker-info p {
+    margin: 5px 0;
+}
+
+.map-placeholder {
+    height: 200px;
+    background-color: #2c3e50;
+    border-radius: 8px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.map-placeholder iframe {
+    border-radius: 8px;
+}
+
+.map-placeholder small {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.map-placeholder a {
+    color: #f66002;
+    font-size: 12px;
+}
+
+.schedule-section {
+    margin: 0 20px 20px;
+}
+
+.schedule-section h3 {
+    color: #183b1c;
+}
+
+.schedule-card {
+    background-color: rgb(1, 78, 1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 3px solid #f66002;
+}
+
+.route-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.route-badge {
+    background-color: #f66002;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.route-description {
+    color: #f2f3ee;
+    margin-bottom: 8px;
+}
+
+.time-info {
+    color: #d1d4e1;
+    font-size: 0.9rem;
+}
+
+.report-btn {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 15px;
+    background-color: #ce040e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.report-btn:hover {
+    background-color: #ce040e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+/* @media (max-width: 600px) {
+
+    .metrics-grid,
+    .tracker-info {
+        grid-template-columns: 1fr;
+    }
+
+    .duty-toggle {
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    } } */
+
+/* Dashboard Container */
+.dashboard-header {
+  display: flex;
+  justify-content: left ; /* Title on left, logout on right */
+  align-items: center;
+  background-color: #0b3d0b; 
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Header Styles */
+.dashboard-header {
+    justify-content: space-between; 
+    background-color: #183b1c;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.DriverHeader-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.Driverheader-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: white;
+    pointer-events: none;
+    width: fit-content;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+/* Fade other buttons when disabled */
+.duty-btn.faded {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Modal overlay */
+.confirm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal box */
+.confirm-modal {
+  background: rgb(246, 247, 246);
+  color: black;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.confirm-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  position: right;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #ff6600; /* orange hover */
+}
+/* Calendar Grid for Scheduled Routes */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.calendar-cell {
+  background-color: #e68f5a;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #f66002;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-cell:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.calendar-cell .route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-cell .route-description {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #f2f3ee;
+}
+
+.calendar-cell .time-info {
+  font-size: 0.85rem;
+  color: #d1d4e1;
+  background: rgba(255,255,255,0.1);
+  padding: 5px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+/* Weekly Calendar Layout (No Time Slots) */
+/* Make weekly calendar scroll horizontally on mobile */
+.weekly-calendar.no-time {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow-x: auto;    /* horizontal scroll */
+  overflow-y: hidden;
+  background: white;
+  color: black;
+  white-space: nowrap; /* prevent wrapping */
+}
+
+/* Keep header in one row with min width for scroll */
+.weekly-calendar.no-time .calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  min-width: 840px; /* 7 days × 120px = scrollable */
+  background: #183b1c;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekly-calendar.no-time .calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  min-width: 840px;
+  gap: 6px;
+}
+
+/* Calendar cells stay consistent */
+.weekly-calendar.no-time .calendar-cell {
+  min-height: 120px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  padding: 8px;
+  position: relative;
+}
+
+
+.route-event {
+  background: #fdf258;
+  color: black;
+  border-left: 4px solid #183b1c;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  transition: transform 0.2s;
+  word-wrap: break-word;      /* allow long text to break */
+  overflow-wrap: anywhere;    /* handle long words nicely */
+  line-height: 1.3;           /* more breathing space */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make paragraphs inside route-event fit better */
+.route-event p {
+  margin: 4px 0;
+  font-size: 0.8rem;
+  color: #222;               
+  white-space: normal;     
+}
+
+
+.route-badge {
+  background: #183b1c;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+.menu-btn {
+  position: absolute;
+  left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  color: #f66002;
+}
+
+.side-menu {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background-color: #0b3d0b;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  animation: slideDown 0.3s ease;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.side-menu button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.side-menu button:hover {
+  background-color: #f66002;
+  transform: translateX(3px);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ====== Schedule / Google Calendar Style ====== */
+.schedule-section {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.schedule-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.month-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.month-filter label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.month-filter select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.calendar-container {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+  color: #444;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.calendar-header .day {
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.calendar-cell {
+  background: #f9fafb;
+  border-radius: 10px;
+  min-height: 120px;
+  padding: 8px;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.calendar-cell:hover {
+  background: #f1f5f9;
+}
+
+.event-block {
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-orange {
+  background: linear-gradient(135deg, #ff7b00, #ffb84d);
+}
+
+.event-blue {
+  background: linear-gradient(135deg, #007bff, #5ab0ff);
+}
+
+.route-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.go-back-btn {
+  background-color: #0b3d0b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.go-back-btn:hover {
+  background-color: #287428;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .dashboard-header {
+        padding: 0 15px;
+        height: 55px;
+    }
+
+    .Driverheader-title {
+        font-size: 1rem;
+        max-width: 60%;
+        left: 50px;
+    }
+
+    .menu-btn {
+        font-size: 1.5rem;
+        left: 10px;
+    }
+
+    .side-menu {
+        width: 160px;
+        left: 5px;
+        top: 55px;
+    }
+
+    .driver-info-2 {
+        padding: 15px;
+        margin: 15px 10px;
+    }
+
+    .duty-toggle {
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 10px;
+    }
+
+    .duty-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .info-section {
+        margin: 0 10px 15px;
+    }
+
+    .tracker-info {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .map-placeholder {
+        height: 180px;
+    }
+
+    .schedule-section {
+        margin: 0 10px 15px;
+    }
+
+    .schedule-card {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .report-btn {
+        width: calc(100% - 20px);
+        margin: 15px 10px;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .calendar-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .weekly-calendar.no-time {
+        min-width: 100%;
+    }
+
+    .weekly-calendar.no-time .calendar-header,
+    .weekly-calendar.no-time .calendar-body {
+        min-width: 700px;
+        grid-template-columns: repeat(7, minmax(100px, 1fr));
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .dashboard-header {
+        padding: 0 18px;
+    }
+
+    .Driverheader-title {
+        font-size: 1.1rem;
+        max-width: 65%;
+    }
+
+    .tracker-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .weekly-calendar.no-time .calendar-header,
+    .weekly-calendar.no-time .calendar-body {
+        min-width: 750px;
+    }
+}
+
+/* Desktop (992px and above) */
+@media (min-width: 992px) {
+    .tracker-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .weekly-calendar.no-time .calendar-header,
+    .weekly-calendar.no-time .calendar-body {
+        min-width: 840px;
+    }
+}

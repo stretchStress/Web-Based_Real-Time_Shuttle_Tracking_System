@@ -1,0 +1,450 @@
+.user-type-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    animation: fadeIn 0.8s ease;
+}
+
+.user-type-toggle button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ddd;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.user-type-toggle button.active {
+    background-color: #43a047;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.user-type-toggle button:hover {
+    background-color: #66bb6a;
+    color: #fff;
+}
+
+/* User List */
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.user-item {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Table */
+.user-table-container {
+    min-height: 20vh;
+    max-height: 50vh;
+    overflow-y: auto;
+    animation: fadeIn 1s ease;
+}
+
+.user-table tbody tr:hover {
+    background-color: #e2f2e3;
+    cursor: pointer;
+    color: black;
+    transition: background 0.3s ease;
+}
+
+.user-table tbody tr.selected {
+    background-color: #388e3c;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Forms */
+.user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.7s ease;
+}
+
+.user-form input {
+    width: 20vw;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-form button,
+.delete-confirm button {
+    padding: 0.6rem 1rem;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.user-form button:hover,
+.delete-confirm button:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* Import Section */
+.import-section {
+    margin-top: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.import-section label {
+    margin-right: 1rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+    .user-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+    }
+
+    .user-form input {
+        flex: 1 1 45%;
+    }
+
+    .user-form button {
+        flex: 1 1 100%;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .user-management {
+        display: flex;
+        min-height: calc(100vh - 80px);
+    }
+    .user-type-toggle {
+        justify-content: flex-start;
+    }
+
+    .user-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .user-item {
+        flex: 1 1 calc(50% - 1rem);
+    }
+
+    .user-table-container {
+        min-height: 40vh;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    /* User type toggle and Add button container */
+    .user-type-toggle.mb-3.d-flex.justify-content-between.align-items-center {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .user-type-toggle.mb-3.d-flex.justify-content-between.align-items-center > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .user-type-toggle.mb-3.d-flex.justify-content-between.align-items-center .btn {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .user-type-toggle {
+        gap: 0.4rem;
+    }
+
+    .user-type-toggle button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .user-form {
+        gap: 0.4rem;
+    }
+
+    .user-form input {
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .user-form button,
+    .delete-confirm button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .user-table-container {
+        max-height: 40vh;
+        overflow-x: auto;
+    }
+
+    .user-table {
+        font-size: 0.75rem;
+        min-width: 600px;
+    }
+
+    .user-table th, .user-table td {
+        padding: 0.4rem 0.3rem;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+        margin-right: 0.3rem;
+    }
+
+    /* Modal adjustments */
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .user-type-toggle.mb-3.d-flex.justify-content-between.align-items-center {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .user-type-toggle.mb-3.d-flex.justify-content-between.align-items-center .btn {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .user-form input {
+        width: 100%;
+    }
+
+    .user-table {
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop (992px and above) */
+@media (min-width: 992px) {
+    .user-form input {
+        width: 20vw;
+    }
+}
+
+/* ===== RESPONSIVE STYLES FOR ADD DRIVER BUTTON ===== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    /* Target the container with user type toggle and add button */
+    .user-management .user-type-toggle.mb-3 {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.75rem !important;
+    }
+
+    .user-management .user-type-toggle.mb-3 > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .user-management .user-type-toggle.mb-3 .btn.btn-sm.btn-success {
+        width: 100% !important;
+        padding: 0.6rem 1rem !important;
+        font-size: 0.9rem !important;
+        margin-top: 0 !important;
+    }
+
+    .user-type-toggle {
+        gap: 0.4rem;
+    }
+
+    .user-type-toggle button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .user-form {
+        gap: 0.4rem;
+    }
+
+    .user-form input {
+        width: 100% !important;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .user-form button,
+    .delete-confirm button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .user-table-container {
+        max-height: 40vh;
+        overflow-x: auto;
+    }
+
+    .user-table {
+        font-size: 0.75rem;
+        min-width: 600px;
+    }
+
+    .user-table th, .user-table td {
+        padding: 0.4rem 0.3rem;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+        margin-right: 0.3rem;
+    }
+
+    /* Modal responsive adjustments */
+    .modal-dialog {
+        margin: 0.5rem !important;
+        max-width: calc(100% - 1rem) !important;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-body .form-group {
+        margin-bottom: 0.75rem;
+    }
+
+    .modal-body .form-control {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+        margin: 0;
+        padding: 0.6rem;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .user-management .user-type-toggle.mb-3 {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .user-management .user-type-toggle.mb-3 .btn.btn-sm.btn-success {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .user-form input {
+        width: 100%;
+    }
+
+    .user-table {
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop (992px and above) */
+@media (min-width: 992px) {
+    .user-form input {
+        width: 20vw;
+    }
+}

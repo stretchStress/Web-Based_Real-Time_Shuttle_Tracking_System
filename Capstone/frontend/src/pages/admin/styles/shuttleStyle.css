@@ -1,0 +1,306 @@
+/* Keyframes */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile-first layout */
+.admin-main.shuttle-management {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+  animation: fadeIn 0.6s ease; /* whole page fade in */
+}
+
+.shuttle-table-container {
+  overflow-x: auto;
+  max-height: 650px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  animation: slideIn 0.5s ease; /* slide in table */
+}
+
+.shuttle-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shuttle-table th,
+.shuttle-table td {
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: #dad7d7 1px solid;
+}
+
+.shuttle-table th {
+  background-color: #EA7822;
+  color: #fff;
+}
+
+.shuttle-table tbody tr {
+  animation: fadeInUp 0.4s ease;
+}
+
+.shuttle-table tbody tr:hover {
+  background-color: #e2f2e3;
+  cursor: pointer;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+.shuttle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 500px;
+  animation: fadeInUp 0.6s ease;
+}
+
+.shuttle-form input,
+.shuttle-form select {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #EA7822;
+  border-radius: 4px;
+}
+
+.shuttle-form button {
+  background-color: #EA7822;
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.shuttle-map-placeholder {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  max-height: 50vh;
+  animation: fadeInUp 0.6s ease;
+}
+
+.shuttle-map-placeholder h4 {
+  color: #ea7822;
+  margin-bottom: 0.5rem;
+}
+
+.map-box {
+  min-height: 30vh;
+  max-height: 40vh;
+  background-color: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Search row with Add button */
+.search-add-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+  gap: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.add-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #236e35;
+}
+
+/* Action buttons inside table */
+.table-actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.action-btn {
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.action-btn.edit {
+  background-color: #007bff;
+}
+
+.action-btn.backup {
+  background-color: #28a745;
+}
+
+.action-btn.delete {
+  background-color: #dc3545;
+}
+
+.action-btn:hover {
+  opacity: 0.7;
+}
+
+/* Centered and larger modal for desktop */
+.map-modal .modal-dialog {
+  max-width: 95% !important;
+  height: 90vh;
+  animation: fadeInUp 0.5s ease; /* smooth modal entry */
+}
+
+.map-modal .modal-content {
+  height: 100%;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+
+.map-wrapper > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Floating maximize button */
+.map-maximize-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(234, 120, 34, 0.9);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.map-maximize-btn:hover {
+  background: #d7691f;
+}
+
+#shuttleTrackingMapModal {
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .search-add-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .add-btn {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .shuttle-table-container {
+        max-height: 400px;
+        overflow-x: auto;
+    }
+
+    .shuttle-table {
+        font-size: 0.75rem;
+        min-width: 700px;
+    }
+
+    .shuttle-table th,
+    .shuttle-table td {
+        padding: 0.5rem 0.4rem;
+    }
+
+    .shuttle-form {
+        max-width: 100%;
+        gap: 0.6rem;
+    }
+
+    .shuttle-form input,
+    .shuttle-form select {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .shuttle-form button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .search-add-row {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .add-btn {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .shuttle-form {
+        max-width: 100%;
+    }
+
+    .shuttle-table {
+        font-size: 0.85rem;
+    }
+}

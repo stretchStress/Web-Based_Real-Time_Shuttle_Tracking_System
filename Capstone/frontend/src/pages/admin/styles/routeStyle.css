@@ -1,0 +1,189 @@
+.route-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.route-table th {
+  background-color: #EA7822;
+  color: white;
+  text-align: left;
+  padding: 10px;
+}
+
+.route-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 🔹 Animate table rows when they appear */
+.route-table tbody tr {
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0; /* ensure animation starts hidden */
+}
+
+.route-table tbody tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.route-table tbody tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.route-table tbody tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.route-table tbody tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+/* add more nth-child rules if you have more rows */
+
+/* 🔹 Custom hover effect */
+.route-table tbody tr:hover td {
+  background-color: #e2f2e3 !important;
+  color: black !important;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform: scale(1.01);
+}
+
+/* Google Maps Place Search Dropdown Styling */
+.place-search-dropdown {
+  max-height: 300px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.place-search-item {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.place-search-item:hover {
+  background-color: #f0f0f0;
+}
+
+.place-search-item:last-child {
+  border-bottom: none;
+}
+
+.place-search-item-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.place-search-item-address {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.place-search-no-results {
+  padding: 12px;
+  text-align: center;
+  color: #999;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    /* Search and Add button container */
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mb-3 .btn {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Modal adjustments */
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .route-table {
+        font-size: 0.75rem;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .route-table th,
+    .route-table td {
+        padding: 0.5rem 0.4rem;
+        white-space: nowrap;
+    }
+    
+    /* Search dropdown for mobile */
+    .place-search-dropdown {
+        max-height: 200px;
+        font-size: 0.85rem;
+    }
+    
+    .place-search-item {
+        padding: 8px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mb-3 .btn {
+        flex: 1;
+        min-width: 150px;
+    }
+}

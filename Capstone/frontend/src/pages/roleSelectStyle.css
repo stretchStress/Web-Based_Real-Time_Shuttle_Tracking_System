@@ -1,0 +1,36 @@
+.role-select-container {
+  background-color: #f8f9fa;
+  display: flex;
+}
+
+.info-section {
+  background-color: #ffffff;
+  border-right: 1px solid #dee2e6;
+}
+
+.role-logo {
+  width: 100%;
+  height: 24vh;
+  object-fit: cover;
+}
+
+.role-btn {
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.role-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .role-select-container {
+    flex-direction: column;
+  }
+
+  .role-logo {
+    height: 100%;
+    width: 80vw;
+  }
+}

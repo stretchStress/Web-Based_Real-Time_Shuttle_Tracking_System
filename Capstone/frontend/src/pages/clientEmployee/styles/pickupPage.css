@@ -1,0 +1,73 @@
+body {
+  background-color: #f8f9fa;
+}
+
+/* Animated Tabs */
+.tab-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-toggle {
+  background-color: #e9ecef;
+  border-radius: 30px;
+  display: flex;
+  position: relative;
+  width: 260px;
+  height: 45px;
+  overflow: hidden;
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  font-weight: 600;
+  color: #198754;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+.tab-btn.active {
+  color: #fff;
+}
+
+.tab-btn:hover {
+  color: #145c36;
+}
+
+.tab-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #198754;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.tab-indicator.right {
+  left: 50%;
+}
+
+.tab-indicator.left {
+  left: 0;
+}
+
+/* Pickup List */
+.pickup-section {
+  overflow-y: auto;
+  padding-bottom: 60px;
+}
+.pickup-card {
+  transition: all 0.2s ease;
+  border-left: 4px solid #198754;
+}
+.pickup-card:hover {
+  transform: translateY(-3px);
+  background-color: #f1fff6;
+}
